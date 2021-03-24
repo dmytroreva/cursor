@@ -1,5 +1,5 @@
-
 import pickle
+import openpyxl as openpyxl
 
 #1
 
@@ -32,8 +32,7 @@ print(total_sum)
 
 import openpyxl
 
-
-class FileExcel:
+class CreateExcel:
     def __init__(self, file_name, method):
         self.file_obj = open(file_name, method)
 
@@ -44,7 +43,7 @@ class FileExcel:
         self.file_obj.close()
 
 
-with FileExcel("Excel.xlsx", 'w') as file:
+with CreateExcel("Excel.xlsx", 'w') as file:
     file.write('Add this string in cell.')
 
 print(file)
