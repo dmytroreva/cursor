@@ -1,3 +1,13 @@
+import dataclasses
+from abc import ABC, abstractmethod
+
+VEGETABLES = ["Red_tomato", "Cherry",]
+FRUITS = ["Golden", "Yellow"]
+
+states = {'nothing': 0, 'flowering': 1, 'green': 2, 'red': 3, 'rotten': 4}
+
+
+
 class GardenMataClass (type):
     _instances = {}
 
@@ -22,19 +32,19 @@ def show_the_garden(self):
 
 @dataclasses.dataclass()
 class PlantsStates:
-    nothing: int
-    flowering: int
-    green: int
-    red: int
-    rotten: int
+      nothing: int
+      flowering: int
+      green: int
+      red: int
+      rotten: int
 
 
 class Vegetables(ABC):
-    pass __init__(self, vegetable_type, states, name, quantity):
-    self.states = states
-    self.vegetable_type = vegetable_type
-    self.name = name
-    self.quantity = quantity
+    def __init__(self, vegetable_type, states, name, quantity):
+     self.states = states
+     self.vegetable_type = vegetable_type
+     self.name = name
+     self.quantity = quantity
     @property
     def vegetable_type(self):
         return self.vegetable_type
@@ -92,7 +102,7 @@ class Fruit:
     def handling(self):
         raise NotImplementedError('The method is missing.')
 
-    @abstractmethod(self)
+    @abstractmethod
     def check_states(self):
         raise NotImplementedError('The method is missing.')
 
@@ -200,7 +210,8 @@ class StarGardener (Garden):
                 break
 
         def __repr__(self):
-            return f'{self.pests_type}  is {self.quantity}'
+            return f'Pests (type = {self.pests_type}, number of pests = {self.quantity})'
+
 
     if __name__ == '__main__':
 
