@@ -12,7 +12,7 @@ class People(ABC):
         raise NotImplementedError
 
     @abstractmethod
-    def buy_a_house(self, house, realtor):
+    def buy_a_house(self, *args, **kwargs):
         pass
 
 
@@ -40,7 +40,7 @@ class Person(People):
         if realtor.steal_money is True:
             self.money = 0
             print("Shit! The realtor stole my money!")
-            return
+
         if house in realtor.houses:
             if self.money >= house.cost:
                 print(f"{self.name}: I buy the house {house.address} with area {house.area} sq.m. which costs"
@@ -57,9 +57,9 @@ class Person(People):
                     if action == "1":
                         self.make_money()
                     elif action == "2":
-                        return
+
                     else:
-                        print("Incorrect action! Try again!")
+                       print("Incorrect action! Try again!")
         else:
             return "There is no houses available"
 
@@ -71,10 +71,10 @@ class Home(ABC):
 
 
 class House(Home):
-    def __init__(self, address, area, cost):
-        self.address = address
-        self.area = area
+    def __init__(self, cost, area, discount):
         self.cost = cost
+        self.area = area
+        self.discount = discount
 
     def apply_a_purchase_discount(self, discount):
         if discount > 0:
