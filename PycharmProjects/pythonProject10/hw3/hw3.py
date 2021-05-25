@@ -56,7 +56,6 @@ class Person(People):
                     action = input("Please input '1' for earning money or '2' for choosing another one': ")
                     if action == "1":
                         self.make_money()
-                    elif action == "2":
 
                     else:
                        print("Incorrect action! Try again!")
