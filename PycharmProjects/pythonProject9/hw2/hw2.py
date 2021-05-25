@@ -118,7 +118,7 @@ class Screen:
 
 
 screen = Screen('ELD')
-cell_phone = CellPhone(Screen)
+cell_phone = CellPhone(screen)
 print(screen.display_type)
 
 class Profile:
@@ -136,6 +136,35 @@ class Profile:
 
     def __str__(self):
         return str(self.parameters)
+
+class Laptop(ABC):
+    def __init__(self, model):
+        self.model = model
+
+    @abstractmethod
+    def screen(self):
+        raise NotImplementedError("Your method is not implemented")
+
+    @abstractmethod
+    def keyboard(self):
+        raise NotImplementedError("Your method is not implemented")
+
+    @abstractmethod
+    def touchpad(self):
+        raise NotImplementedError("Your method is not implemented")
+
+    @abstractmethod
+    def webcam(self):
+        raise NotImplementedError("Your method is not implemented")
+
+    @abstractmethod
+    def ports(self):
+        raise NotImplementedError("Your method is not implemented")
+
+    @abstractmethod
+    def dynamics(self):
+        raise NotImplementedError("Your method is not implemented")
+
 
 
 my_profile = Profile('Dmytro', 'Reva', '0992612334', 'Boryspilska str', 'revadise@gmail.com', '30.08.1996',
@@ -166,7 +195,6 @@ print(my_profile)
     @abstractmethod
     def core(self):
         raise NotImplementedError
-
 
 class AcerES15(Laptop):
     def __init__(self, laptop_screen, laptop_keyboard, laptop_touchpad, laptop_webcam, laptop_ports, laptop_dynamics):
